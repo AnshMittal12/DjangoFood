@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="/static/project.js"></script>
+    <link rel="stylesheet" href="/static/project.css" />
+</head>
+<div class="maincontainer">
+    <div class="box">
+        <form class="row g-3" action="/edit_food_data" method="post"> {% csrf_token %}
+            <input type="hidden" value="{{data.foodlistid}}" name="foodlistid">
+            <div class="col-md-12" style="width: 50vw ; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+                <div style="display: flex; flex-direction: row;">
+                    <img src="/static/Foodlogo1.png" width="60" />
+                    <div class="headingtext">Edit Food</div>
+                </div>
+                <div>
+                    <a href="/fetchallfood" style="text-decoration: none;" ><img src="/static/list.png" width="40" /></a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label style="font-family:  Pacifico;" for="foodtype" class="form-label">Food Type</label>
+                <select class="form-select" name="foodtypeid" id="foodtype" aria-label="Default select example">
+                    <option selected value="{{data.foodtypeid}}">{{data.foodtype}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label style="font-family:  Pacifico;" for="fooditem" class="form-label">Food Item</label>
+                <select class="form-select" name="fooditemid" id="fooditem" aria-label="Default select example">
+                    <option selected value="{{data.fooditemid}}">{{data.food}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <div style="font-family: Pacifico;">Food Status</div>
+                <div style="display: flex; justify-content: space-evenly; flex-direction: row;">
+                    {% if data.foodstatus == 'Veg' %}
+                    <div class="form-check">
+                        <input checked class="form-check-input" name="foodstatus" type="radio" value="Veg"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Veg
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="foodstatus" value="NonVeg"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Non Veg
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="form-check">
+                        <input class="form-check-input" name="foodstatus" type="radio" value="Veg"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Veg
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input checked class="form-check-input" type="radio" name="foodstatus" value="NonVeg"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Non Veg
+                        </label>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label style="font-family:  Pacifico;" for="desc" class="form-label">Description</label>
+                <input value="{{data.description}}" type="text" class="form-control" name="description" id="desc">
+            </div>
+            <div class="col-md-6">
+                <label for="price" style="font-family:  Pacifico;" class="form-label">Price</label>
+                <input value="{{data.price}}" type="text" class="form-control" name="price" id="Price">
+            </div>
+            <div class="col-md-6">
+                <label for="offer" style="font-family:  Pacifico;" class="form-label">Offer</label>
+                <input value="{{data.offer}}" type="text" class="form-control" name="offer" id="offer">
+            </div>
+            <div class="col-md-6" style="display: flex; align-items: center;justify-content: center;">
+                <button name="btn" value="Edit" style="width: 75%;" type="submit" class="btn btn-primary">Edit</button>
+            </div>
+            <div class="col-md-6" style="display: flex; align-items: center;justify-content: center;">
+                <button name="btn" value="Delete" style="width: 75%;" type="submit" class="btn btn-primary">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</html>

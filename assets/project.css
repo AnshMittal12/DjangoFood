@@ -1,0 +1,44 @@
+.maincontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7f8fa6;
+    width: 100vw;
+    height: 100vh;
+}
+
+.box {
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    width: 500px;
+    height: auto;
+}
+
+.headingtext {
+    font-size: 30px;
+    font-family: Pacifico;
+    padding: 15px;
+}
+
+.centeralign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tablebox {
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    width: 70vw;
+    height: 80vh;
+    overflow-y: scroll;
+}
+.centerbox {
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    width: 70vw;
+    height: 70vh;
+}
+
